@@ -6,6 +6,7 @@ import {
   POST_IN_PORT,
   POST_LIST_USECASE,
   POST_OUT_PORT,
+  POST_UPDATE_USECASE,
   POST_UPLOAD_USECASE,
 } from './constants/post.token';
 import { PostUploadService } from './service/post-upload.service';
@@ -14,6 +15,8 @@ import { PaginationHelper } from '../common/helper/pagination-helper.service';
 import { PostQueryAdapter } from './infrastructure/repository/post-query.adapter';
 import { PostListController } from './infrastructure/web/post-list.controller';
 import { PostListService } from './service/post-list.service';
+import { PostUpdateService } from './service/post-update.service';
+import { PostUpdateController } from './infrastructure/web/post-update.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Post])],
@@ -27,6 +30,10 @@ import { PostListService } from './service/post-list.service';
       useClass: PostListService,
     },
     {
+      provide: POST_UPDATE_USECASE,
+      useClass: PostUpdateService,
+    },
+    {
       provide: POST_OUT_PORT,
       useClass: PostCommandAdapter,
     },
@@ -36,6 +43,6 @@ import { PostListService } from './service/post-list.service';
     },
     PaginationHelper,
   ],
-  controllers: [PostUploadController, PostListController],
+  controllers: [PostUploadController, PostListController, PostUpdateController],
 })
 export class PostModule {}
