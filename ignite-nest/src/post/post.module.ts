@@ -19,6 +19,7 @@ import { PostListService } from './service/post-list.service';
 import { PostUpdateService } from './service/post-update.service';
 import { PostUpdateController } from './infrastructure/web/post-update.controller';
 import { PostDetailService } from './service/post-detail.service';
+import { PostDetailController } from './infrastructure/web/post-detail.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Post])],
@@ -49,6 +50,11 @@ import { PostDetailService } from './service/post-detail.service';
     },
     PaginationHelper,
   ],
-  controllers: [PostUploadController, PostListController, PostUpdateController],
+  controllers: [
+    PostUploadController,
+    PostListController,
+    PostUpdateController,
+    PostDetailController,
+  ],
 })
 export class PostModule {}
