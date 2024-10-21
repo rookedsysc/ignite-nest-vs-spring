@@ -16,11 +16,13 @@ export class PostQueryAdapter implements PostInPort {
   ) {}
 
   async getPostByIdOrThrow(postId: number): Promise<Post> {
-    return await this.postRepository
+    const post = await this.postRepository
       .findOneOrFail({ where: { id: postId } })
       .catch(() => {
         throw new NotFoundException(`Post id ${postId} not found`);
       });
+
+    return post;
   }
 
   async getPostList(request: PageRequestDto): Promise<PageResponseDto<Post>> {
