@@ -5,7 +5,9 @@ import { PageRequestDto } from '../../../common/dto/page-request.dto';
 import { PageResponseDto } from '../../../common/dto/page-response.dto';
 import { PostListDto } from './dto/response/post-list.dto';
 import { PageResponseDecorator } from '../../../common/decorator/page-response.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags(POST_CONTROLLER)
 @Controller(POST_CONTROLLER)
 export class PostListController {
   constructor(
