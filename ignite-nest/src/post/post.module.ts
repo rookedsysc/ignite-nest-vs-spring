@@ -12,7 +12,7 @@ import { PostUploadService } from './service/post-upload.service';
 import { PostUploadController } from './infrastructure/web/post-upload.controller';
 import { PaginationHelper } from '../common/helper/pagination-helper.service';
 import { PostQueryAdapter } from './infrastructure/repository/post-query.adapter';
-import { PostListController } from './infrastructure/web/decorator/post-list.controller';
+import { PostListController } from './infrastructure/web/post-list.controller';
 import { PostListService } from './service/post-list.service';
 
 @Module({
