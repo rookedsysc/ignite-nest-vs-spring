@@ -5,7 +5,7 @@ import { PageRequestDto } from '../dto/page-request.dto';
 import { PageResponseDto } from '../dto/page-response.dto';
 
 @Injectable()
-export class PaginationService {
+export class PaginationHelper {
   constructor(private readonly dataSource: DataSource) {}
 
   /**
