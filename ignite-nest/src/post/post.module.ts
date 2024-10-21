@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from './entity/post.entity';
 import { PostCommandAdapter } from './infrastructure/repository/post-command.adapter';
 import {
+  POST_DETAIL_USECASE,
   POST_IN_PORT,
   POST_LIST_USECASE,
   POST_OUT_PORT,
@@ -17,6 +18,7 @@ import { PostListController } from './infrastructure/web/post-list.controller';
 import { PostListService } from './service/post-list.service';
 import { PostUpdateService } from './service/post-update.service';
 import { PostUpdateController } from './infrastructure/web/post-update.controller';
+import { PostDetailService } from './service/post-detail.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Post])],
@@ -28,6 +30,10 @@ import { PostUpdateController } from './infrastructure/web/post-update.controlle
     {
       provide: POST_LIST_USECASE,
       useClass: PostListService,
+    },
+    {
+      provide: POST_DETAIL_USECASE,
+      useClass: PostDetailService,
     },
     {
       provide: POST_UPDATE_USECASE,
