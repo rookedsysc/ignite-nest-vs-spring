@@ -15,9 +15,9 @@ export class PostDeleteController {
     private readonly postDeleteUsecase: PostDeleteUsecase,
   ) {}
 
-  @Delete('/:postId')
+  @Delete(':postId')
   @DeletePostSwagger()
-  async deletePost(@Param() postId: number): Promise<void> {
+  async deletePost(@Param('postId') postId: number): Promise<void> {
     return this.postDeleteUsecase.execute(postId);
   }
 }
