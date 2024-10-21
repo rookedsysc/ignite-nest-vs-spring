@@ -6,7 +6,9 @@ import {
 import { PostUploadUsecase } from '../../domain/usecase/post-upload.usecase';
 import { PostUploadDto } from './dto/request/post-upload.dto';
 import { PostUploadSwagger } from './decorator/post-upload-controller.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags(POST_CONTROLLER)
 @Controller(POST_CONTROLLER)
 export class PostUploadController {
   constructor(
@@ -17,6 +19,6 @@ export class PostUploadController {
   @Post()
   @PostUploadSwagger()
   async uploadPost(@Body() postUploadDto: PostUploadDto) {
-    await this.postUploadUsecase.uploadPost(postUploadDto);
+    await this.postUploadUsecase.execute(postUploadDto);
   }
 }

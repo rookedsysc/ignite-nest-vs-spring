@@ -9,4 +9,9 @@ export class Post extends Base {
   content: string;
   @Column({ type: 'bigint', name: 'comment_count', default: 0 })
   commentCount: number;
+
+  update(title?: string, content?: string) {
+    this.title = title ?? this.title;
+    this.content = content ?? this.content;
+  }
 }

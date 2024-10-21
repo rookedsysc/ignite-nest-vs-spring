@@ -10,7 +10,8 @@ export class PostUploadService implements PostUploadUsecase {
     @Inject(POST_OUT_PORT)
     private readonly postOutPort: PostOutPort,
   ) {}
-  async uploadPost(postUpload: PostUploadDto): Promise<void> {
+
+  async execute(postUpload: PostUploadDto): Promise<void> {
     await this.postOutPort.save(postUpload);
   }
 }
