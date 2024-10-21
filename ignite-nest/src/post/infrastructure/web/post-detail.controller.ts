@@ -18,7 +18,7 @@ export class PostDetailController {
 
   @Get(':postId')
   @GetPostDetailSwagger()
-  async getPostDetail(@Param() postId: number): Promise<PostDetailDto> {
+  async getPostDetail(@Param('postId') postId: number): Promise<PostDetailDto> {
     return this.postDetailUsecase.execute(postId);
   }
 }
