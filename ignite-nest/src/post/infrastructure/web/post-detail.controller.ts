@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Param } from '@nestjs/common';
 import {
   POST_CONTROLLER,
   POST_DETAIL_USECASE,
@@ -18,7 +18,7 @@ export class PostDetailController {
 
   @Get(':postId')
   @GetPostDetailSwagger()
-  async getPostDetail(postId: number): Promise<PostDetailDto> {
+  async getPostDetail(@Param() postId: number): Promise<PostDetailDto> {
     return this.postDetailUsecase.execute(postId);
   }
 }
