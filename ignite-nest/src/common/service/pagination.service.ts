@@ -2,7 +2,7 @@ import { DataSource, FindManyOptions } from 'typeorm';
 import { Injectable, Type } from '@nestjs/common';
 import { Base } from '../entity/base';
 import { PageRequestDto } from '../dto/page-request.dto';
-import { PageResponse } from '../dto/page-response.dto';
+import { PageResponseDto } from '../dto/page-response.dto';
 
 @Injectable()
 export class PaginationService {
@@ -24,7 +24,7 @@ export class PaginationService {
     cls: Type<T>,
     pageRequest: PageRequestDto,
     options?: FindManyOptions<T>,
-  ): Promise<PageResponse<T>> {
+  ): Promise<PageResponseDto<T>> {
     const offset = pageRequest.getOffset();
     const limit = pageRequest.getLimit();
 
@@ -38,7 +38,7 @@ export class PaginationService {
     });
 
     // Page 객체 반환
-    return new PageResponse<T>(
+    return new PageResponseDto<T>(
       total, // 총 아이템 개수
       pageRequest.currentPage ?? 1, // 현재 페이지 번호
       pageRequest.pageSize ?? 10, // 페이지당 아이템 수
