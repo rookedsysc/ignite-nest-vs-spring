@@ -17,6 +17,6 @@ export class PostUploadController {
   @Post()
   @PostUploadSwagger()
   async uploadPost(@Body() postUploadDto: PostUploadDto) {
-    await this.postUploadUsecase.uploadPost(postUploadDto);
+    await this.postUploadUsecase.execute(postUploadDto);
   }
 }
