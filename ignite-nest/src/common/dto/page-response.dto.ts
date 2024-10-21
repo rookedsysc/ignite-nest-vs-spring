@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class PageResponse<T> {
+export class PageResponseDto<T> {
   @ApiProperty({
     description: '전체 데이터에서 현재 페이지의 첫 번째 아이템의 인덱스',
     example: 0,
