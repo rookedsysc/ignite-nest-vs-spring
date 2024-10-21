@@ -23,4 +23,8 @@ export class PostCommandAdapter implements PostOutPort {
     post.update(postUploadDto.title, postUploadDto.content);
     return await this.postRepository.save(post);
   }
+
+  async delete(post: Post): Promise<void> {
+    await this.postRepository.remove(post);
+  }
 }

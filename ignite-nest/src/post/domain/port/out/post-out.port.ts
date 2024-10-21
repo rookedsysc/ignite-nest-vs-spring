@@ -6,4 +6,6 @@ export interface PostOutPort {
   save(postUploadDto: PostUploadDto): Promise<Post>;
 
   update(post: Post, postUpdateDto: PostUpdateDto): Promise<Post>;
+
+  delete(post: Post): Promise<void>;
 }

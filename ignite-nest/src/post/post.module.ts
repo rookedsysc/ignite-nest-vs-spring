@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from './entity/post.entity';
 import { PostCommandAdapter } from './infrastructure/repository/post-command.adapter';
 import {
+  POST_DELETE_USECASE,
   POST_DETAIL_USECASE,
   POST_IN_PORT,
   POST_LIST_USECASE,
@@ -20,6 +21,8 @@ import { PostUpdateService } from './service/post-update.service';
 import { PostUpdateController } from './infrastructure/web/post-update.controller';
 import { PostDetailService } from './service/post-detail.service';
 import { PostDetailController } from './infrastructure/web/post-detail.controller';
+import { PostDeleteService } from './service/post-delete.service';
+import { PostDeleteController } from './infrastructure/web/post-delete.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Post])],
@@ -41,6 +44,10 @@ import { PostDetailController } from './infrastructure/web/post-detail.controlle
       useClass: PostUpdateService,
     },
     {
+      provide: POST_DELETE_USECASE,
+      useClass: PostDeleteService,
+    },
+    {
       provide: POST_OUT_PORT,
       useClass: PostCommandAdapter,
     },
@@ -51,6 +58,7 @@ import { PostDetailController } from './infrastructure/web/post-detail.controlle
     PaginationHelper,
   ],
   controllers: [
+    PostDeleteController,
     PostUploadController,
     PostListController,
     PostUpdateController,
