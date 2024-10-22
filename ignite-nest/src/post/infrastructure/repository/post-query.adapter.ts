@@ -25,7 +25,7 @@ export class PostQueryAdapter implements PostInPort {
     return post;
   }
 
-  async getPostList(request: PageRequestDto): Promise<PageResponseDto<Post>> {
+  async findPostList(request: PageRequestDto): Promise<PageResponseDto<Post>> {
     return this.paginationService.paginate(Post, request);
   }
 }
