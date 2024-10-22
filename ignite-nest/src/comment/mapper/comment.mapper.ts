@@ -2,6 +2,7 @@ import { CommentUploadDto } from '../infrastructure/web/dto/request/comment-uplo
 import { Comment } from '../entity/comment.entity';
 import { PostListDto } from '../../post/infrastructure/web/dto/response/post-list.dto';
 import { CommentListDto } from '../infrastructure/web/dto/response/comment-list.dto';
+import { CommentPostDetailListDto } from '../infrastructure/web/dto/response/comment-post-detail-list.dto';
 
 export class CommentMapper {
   static toEntity(postId: number, comment: CommentUploadDto): Comment {
@@ -18,6 +19,16 @@ export class CommentMapper {
       content: comment.content,
       createdAt: comment.createdAt,
       post: postListDto,
+    };
+    return commentListDto;
+  }
+
+  static toPostDetailResponse(comment: Comment): CommentPostDetailListDto {
+    const commentListDto = {
+      id: comment.id,
+      title: comment.title,
+      content: comment.content,
+      createdAt: comment.createdAt,
     };
     return commentListDto;
   }
