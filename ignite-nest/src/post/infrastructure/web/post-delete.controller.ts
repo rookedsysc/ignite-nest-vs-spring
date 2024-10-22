@@ -1,13 +1,14 @@
 import { Controller, Delete, Inject, Param } from '@nestjs/common';
 import {
   POST_CONTROLLER,
+  POST_CONTROLLER_GROUP,
   POST_DELETE_USECASE,
 } from '../../constants/post.token';
 import { ApiTags } from '@nestjs/swagger';
 import { PostDeleteUsecase } from '../../domain/usecase/post-delete.usecase';
 import { DeletePostSwagger } from './decorator/post-delete-controller.decorator';
 
-@ApiTags(POST_CONTROLLER)
+@ApiTags(POST_CONTROLLER_GROUP)
 @Controller(POST_CONTROLLER)
 export class PostDeleteController {
   constructor(

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength } from 'class-validator';
 
-export class PostUploadDto {
+export class CommentUploadDto {
   @ApiProperty({
     example: '제목',
     description: '제목',
