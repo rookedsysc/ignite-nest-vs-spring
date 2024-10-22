@@ -8,7 +8,7 @@ export class CommentListDto extends PickType(Comment, [
   'content',
   'createdAt',
 ]) {
-  postListDto: PostListDto;
+  post: PostListDto;
 
   constructor(
     id: number,
@@ -18,6 +18,6 @@ export class CommentListDto extends PickType(Comment, [
     postListDto: PostListDto,
   ) {
     super(id, title, content, createdAt);
-    this.postListDto = postListDto;
+    this.post = postListDto;
   }
 }

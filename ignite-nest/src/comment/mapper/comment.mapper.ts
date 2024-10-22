@@ -17,7 +17,7 @@ export class CommentMapper {
       title: comment.title,
       content: comment.content,
       createdAt: comment.createdAt,
-      postListDto,
+      post: postListDto,
     };
     return commentListDto;
   }
