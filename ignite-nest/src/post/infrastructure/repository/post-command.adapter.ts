@@ -28,8 +28,8 @@ export class PostCommandAdapter implements PostOutPort {
     await this.postRepository.remove(post);
   }
 
-  async updateCommentCount(post: Post, value: number): Promise<void> {
+  async updateCommentCount(post: Post, value: number): Promise<Post> {
     post.updateCommentCount(value);
-    await this.postRepository.save(post);
+    return await this.postRepository.save(post);
   }
 }

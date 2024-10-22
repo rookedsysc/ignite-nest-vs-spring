@@ -14,5 +14,5 @@ export interface PostOutPort {
    * @param post
    * @param value
    */
-  updateCommentCount(post: Post, value: number): Promise<void>;
+  updateCommentCount(post: Post, value: number): Promise<Post>;
 }
