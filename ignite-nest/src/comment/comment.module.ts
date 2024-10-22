@@ -13,6 +13,7 @@ import { PostCommentController } from './infrastructure/web/post-comment.control
 import { Comment } from './entity/comment.entity';
 import { CommentQueryAdapter } from './infrastructure/repository/comment-query.adapter';
 import { CommentListService } from './service/comment-list.service';
+import { CommentController } from './infrastructure/web/comment.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Comment]), PostModule],
@@ -34,6 +35,6 @@ import { CommentListService } from './service/comment-list.service';
       useClass: CommentListService,
     },
   ],
-  controllers: [PostCommentController],
+  controllers: [PostCommentController, CommentController],
 })
 export class CommentModule {}
