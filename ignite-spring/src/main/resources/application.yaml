@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+  datasource:
+    url: jdbc:mysql://192.168.1.12:3306/spring_ignite
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: df159357
