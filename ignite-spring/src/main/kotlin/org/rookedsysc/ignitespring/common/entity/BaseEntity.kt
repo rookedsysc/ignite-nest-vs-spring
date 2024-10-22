@@ -17,9 +17,9 @@ class BaseEntity {
 
     @CreatedDate
     @Column(name = "created_at")
-    var createdAt: Date = Date(),
+    var createdAt: Date = Date()
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    var updatedAt: Date = Date(),
+    var updatedAt: Date = Date()
 }
