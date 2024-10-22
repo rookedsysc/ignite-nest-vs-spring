@@ -3,6 +3,7 @@ import { Post } from '../entity/post.entity';
 import { PostDetailDto } from '../infrastructure/web/dto/response/post-detail.dto';
 import { PageResponseDto } from '../../common/dto/page-response.dto';
 import { PostListDto } from '../infrastructure/web/dto/response/post-list.dto';
+import { CommentListDto } from '../../comment/infrastructure/web/dto/response/comment-list.dto';
 
 export class PostMapper {
   static toEntity(postUploadDto: PostUploadDto): Post {
@@ -12,12 +13,13 @@ export class PostMapper {
     return post;
   }
 
-  static toResponse(post: Post): PostDetailDto {
+  static toResponse(post: Post, comments: CommentListDto[]): PostDetailDto {
     const postDetailDto = new PostDetailDto();
     postDetailDto.id = post.id;
     postDetailDto.title = post.title;
     postDetailDto.content = post.content;
     postDetailDto.createdAt = post.createdAt;
+    postDetailDto.comments = comments;
 
     return postDetailDto;
   }
