@@ -64,5 +64,15 @@ import { PostDeleteController } from './infrastructure/web/post-delete.controlle
     PostUpdateController,
     PostDetailController,
   ],
+  exports: [
+    {
+      provide: POST_IN_PORT,
+      useClass: PostQueryAdapter,
+    },
+    {
+      provide: POST_OUT_PORT,
+      useClass: PostCommandAdapter,
+    },
+  ],
 })
 export class PostModule {}
