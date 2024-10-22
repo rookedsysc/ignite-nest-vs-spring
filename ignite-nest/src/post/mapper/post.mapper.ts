@@ -22,6 +22,16 @@ export class PostMapper {
     return postDetailDto;
   }
 
+  static toListResponse(post: Post): PostListDto {
+    const postListDto = new PostListDto();
+    postListDto.id = post.id;
+    postListDto.title = post.title;
+    postListDto.commentCount = post.commentCount;
+    postListDto.createdAt = post.createdAt;
+
+    return postListDto;
+  }
+
   static toPageListResponse(
     postPageResponse: PageResponseDto<Post>,
   ): PageResponseDto<PostListDto> {
@@ -30,12 +40,7 @@ export class PostMapper {
       postPageResponse.currentPage,
       postPageResponse.size,
       postPageResponse.items.map((post) => {
-        const postListDto = new PostListDto();
-        postListDto.id = post.id;
-        postListDto.title = post.title;
-        postListDto.commentCount = post.commentCount;
-        postListDto.createdAt = post.createdAt;
-        return postListDto;
+        return this.toListResponse(post);
       }),
     );
 
