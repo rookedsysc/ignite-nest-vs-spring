@@ -5,7 +5,7 @@ import jakarta.persistence.Entity
 import org.rookedsysc.ignitespring.common.entity.BaseEntity
 
 @Entity
-class PostEntity: BaseEntity() {
+class PostEntity(title: String, content: String) : BaseEntity() {
     @Column(columnDefinition = "varchar(50)", length = 50, nullable = false)
     var title: String = ""
     @Column(columnDefinition = "text", nullable = false)
