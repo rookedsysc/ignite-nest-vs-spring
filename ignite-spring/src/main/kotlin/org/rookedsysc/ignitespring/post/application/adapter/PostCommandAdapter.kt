@@ -1,4 +1,4 @@
-package org.rookedsysc.ignitespring.post.service.adapter
+package org.rookedsysc.ignitespring.post.application.adapter
 
 import org.rookedsysc.ignitespring.post.domain.port.out.PostOutPort
 import org.rookedsysc.ignitespring.post.entity.PostEntity
