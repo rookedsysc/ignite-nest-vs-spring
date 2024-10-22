@@ -36,5 +36,15 @@ import { CommentController } from './infrastructure/web/comment.controller';
     },
   ],
   controllers: [PostCommentController, CommentController],
+  exports: [
+    {
+      provide: COMMENT_IN_PORT,
+      useClass: CommentQueryAdapter,
+    },
+    {
+      provide: COMMENT_OUT_PORT,
+      useClass: CommentCommandAdapter,
+    },
+  ],
 })
 export class CommentModule {}
