@@ -8,3 +8,4 @@ export const COMMENT_CONTROLLER_GROUP = '댓글 API' as const;
 
 // usecase interface
 export const COMMENT_UPLOAD_USECASE = 'COMMENT_UPLOAD_USECASE';
+export const COMMENT_LIST_USECASE = 'COMMENT_LIST_USECASE';
