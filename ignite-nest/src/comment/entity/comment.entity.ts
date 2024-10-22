@@ -1,6 +1,5 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { Base } from '../../common/entity/base';
-import { Post } from '../../post/entity/post.entity';
 
 @Entity('comment')
 export class Comment extends Base {
@@ -10,12 +9,12 @@ export class Comment extends Base {
   @Column({ type: 'text', name: 'content' })
   content: string;
 
-  @ManyToOne(() => Post, (post) => post.comments)
-  post: Post;
+  @Column({ type: 'bigint', name: 'post_id' })
+  postId: number;
 
-  constructor(post: Post, title: string, content: string) {
+  constructor(postId: number, title: string, content: string) {
     super();
-    this.post = post;
+    this.postId = postId;
     this.title = title;
     this.content = content;
   }

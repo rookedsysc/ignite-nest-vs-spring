@@ -6,8 +6,8 @@ import {
 } from '../../constants/post.token';
 import { PostUpdateUsecase } from '../../domain/usecase/post-update.usecase';
 import { PostUpdateDto } from './dto/request/post-update.dto';
-import { PostUploadSwagger } from './decorator/post-upload-controller.decorator';
 import { ApiTags } from '@nestjs/swagger';
+import { PostUpdateSwagger } from './decorator/post-update-controller.decorator';
 
 @ApiTags(POST_CONTROLLER_GROUP)
 @Controller(POST_CONTROLLER)
@@ -18,7 +18,7 @@ export class PostUpdateController {
   ) {}
 
   @Put('/:id')
-  @PostUploadSwagger()
+  @PostUpdateSwagger()
   async updatePost(
     @Param('id') id: number,
     @Body() updateRequest: PostUpdateDto,

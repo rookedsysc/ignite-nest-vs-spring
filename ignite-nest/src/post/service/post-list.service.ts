@@ -18,7 +18,7 @@ export class PostListService implements PostListUsecase {
       Post,
       request,
     );
-    const postDtoResponse = PostMapper.toListResponse(postPageResponse);
+    const postDtoResponse = PostMapper.toPageListResponse(postPageResponse);
     return postDtoResponse;
   }
 }
