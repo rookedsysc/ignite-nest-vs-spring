@@ -1,8 +1,7 @@
-import { Post } from '../../../../entity/post.entity';
-import { ApiProperty, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength } from 'class-validator';
 
-export class PostUploadDto extends PickType(Post, ['title', 'content']) {
+export class PostUploadDto {
   @ApiProperty({
     example: '제목',
     description: '제목',
