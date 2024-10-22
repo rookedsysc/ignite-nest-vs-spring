@@ -7,7 +7,8 @@ import {
 import { CommentCommandAdapter } from './infrastructure/repository/comment-command.adapter';
 import { CommentUploadService } from './service/comment-upload.service';
 import { PostModule } from '../post/post.module';
-import { PostCommentController } from './infrastructure/web/comment.controller';
+import { PostCommentController } from './infrastructure/web/post-comment.controller';
+import { Comment } from './entity/comment.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Comment]), PostModule],
