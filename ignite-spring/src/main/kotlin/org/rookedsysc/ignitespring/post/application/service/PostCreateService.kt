@@ -5,8 +5,10 @@ import org.rookedsysc.ignitespring.post.domain.usecase.PostCreateUsecase
 import org.rookedsysc.ignitespring.post.entity.PostEntity
 import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostCreateDto
 import org.rookedsysc.ignitespring.post.mapper.PostMapper
+import org.springframework.stereotype.Service
 
-class PostCreateService(
+@Service
+class PostCreateService (
     private val postOutPort: PostOutPort
 ) : PostCreateUsecase {
     override fun execute(postCreateDto: PostCreateDto): Unit {
