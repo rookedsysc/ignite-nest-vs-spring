@@ -1,5 +1,8 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
-import { COMMENT_CONTROLLER_GROUP } from '../../constants/comment.token';
+import { Body, Controller, Inject, Param, Post } from '@nestjs/common';
+import {
+  COMMENT_CONTROLLER_GROUP,
+  COMMENT_UPLOAD_USECASE,
+} from '../../constants/comment.token';
 import { ApiTags } from '@nestjs/swagger';
 import { CommentUploadUsecase } from '../../domain/usecase/comment-upload.usecase';
 import { POST_CONTROLLER } from '../../../post/constants/post.token';
@@ -11,7 +14,10 @@ import { CommentUploadDto } from './dto/request/comment-upload.dto';
 @ApiTags(COMMENT_CONTROLLER_GROUP)
 @Controller(POST_CONTROLLER)
 export class PostCommentController {
-  constructor(private readonly commentUploadUsecase: CommentUploadUsecase) {}
+  constructor(
+    @Inject(COMMENT_UPLOAD_USECASE)
+    private readonly commentUploadUsecase: CommentUploadUsecase,
+  ) {}
 
   @Post('/:postId/comments')
   async uploadComment(
