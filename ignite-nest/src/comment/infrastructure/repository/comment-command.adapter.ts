@@ -11,6 +11,10 @@ export class CommentCommandAdapter implements CommentOutPort {
     private readonly commentRepository: Repository<Comment>,
   ) {}
 
+  async deleteByPostId(postId: number): Promise<void> {
+    await this.commentRepository.delete({ postId });
+  }
+
   async createComment(comment: Comment): Promise<Comment> {
     return await this.commentRepository.save(comment);
   }
