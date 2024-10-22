@@ -22,7 +22,7 @@ export class PostMapper {
     return postDetailDto;
   }
 
-  static toListResponse(
+  static toPageListResponse(
     postPageResponse: PageResponseDto<Post>,
   ): PageResponseDto<PostListDto> {
     const postListDto = new PageResponseDto<PostListDto>(
