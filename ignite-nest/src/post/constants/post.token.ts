@@ -3,7 +3,7 @@ export const POST_IN_PORT = 'POST_IN_PORT' as const;
 export const POST_OUT_PORT = 'POST_OUT_PORT' as const;
 
 // controller common path
-export const POST_CONTROLLER = '/api/post';
+export const POST_CONTROLLER = '/api/posts';
 
 // usecase interface
 export const POST_UPLOAD_USECASE = 'POST_UPLOAD_USECASE';
