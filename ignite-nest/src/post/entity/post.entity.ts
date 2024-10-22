@@ -20,4 +20,12 @@ export class Post extends Base {
     this.title = title ?? this.title;
     this.content = content ?? this.content;
   }
+
+  /**
+   * 댓글 개수 차감시 value -1
+   * @param value
+   */
+  updateCommentCount(value: number) {
+    this.commentCount += value;
+  }
 }

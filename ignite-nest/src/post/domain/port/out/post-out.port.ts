@@ -8,4 +8,11 @@ export interface PostOutPort {
   update(post: Post, postUpdateDto: PostUpdateDto): Promise<Post>;
 
   delete(post: Post): Promise<void>;
+
+  /**
+   * 댓글 수 차감시 -1, 증가시 +1
+   * @param post
+   * @param value
+   */
+  updateCommentCount(post: Post, value: number): Promise<void>;
 }
