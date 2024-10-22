@@ -12,4 +12,11 @@ export class Comment extends Base {
 
   @ManyToOne(() => Post, (post) => post.comments)
   post: Post;
+
+  constructor(post: Post, title: string, content: string) {
+    super();
+    this.post = post;
+    this.title = title;
+    this.content = content;
+  }
 }
