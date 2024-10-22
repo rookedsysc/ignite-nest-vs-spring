@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from './entity/post.entity';
 import { PostCommandAdapter } from './infrastructure/repository/post-command.adapter';
@@ -23,9 +23,10 @@ import { PostDetailService } from './service/post-detail.service';
 import { PostDetailController } from './infrastructure/web/post-detail.controller';
 import { PostDeleteService } from './service/post-delete.service';
 import { PostDeleteController } from './infrastructure/web/post-delete.controller';
+import { CommentModule } from '../comment/comment.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Post])],
+  imports: [TypeOrmModule.forFeature([Post]), forwardRef(() => CommentModule)],
   providers: [
     {
       provide: POST_UPLOAD_USECASE,

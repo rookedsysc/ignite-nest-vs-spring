@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   COMMENT_IN_PORT,
@@ -16,7 +16,7 @@ import { CommentListService } from './service/comment-list.service';
 import { CommentController } from './infrastructure/web/comment.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Comment]), PostModule],
+  imports: [TypeOrmModule.forFeature([Comment]), forwardRef(() => PostModule)],
   providers: [
     {
       provide: COMMENT_OUT_PORT,
@@ -36,5 +36,15 @@ import { CommentController } from './infrastructure/web/comment.controller';
     },
   ],
   controllers: [PostCommentController, CommentController],
+  exports: [
+    {
+      provide: COMMENT_IN_PORT,
+      useClass: CommentQueryAdapter,
+    },
+    {
+      provide: COMMENT_OUT_PORT,
+      useClass: CommentCommandAdapter,
+    },
+  ],
 })
 export class CommentModule {}

@@ -11,6 +11,10 @@ export class CommentQueryAdapter implements CommentInPort {
     private readonly commentRepository: Repository<Comment>,
   ) {}
 
+  async findCommentsByPostId(postId: number): Promise<Comment[]> {
+    return await this.commentRepository.find({ where: { postId: postId } });
+  }
+
   async findAllCommentList(): Promise<Comment[]> {
     const commets = await this.commentRepository.find();
     return commets;
