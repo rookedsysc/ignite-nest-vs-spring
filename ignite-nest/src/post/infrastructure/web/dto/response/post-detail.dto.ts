@@ -1,6 +1,6 @@
 import { PickType } from '@nestjs/swagger';
 import { Post } from '../../../../entity/post.entity';
-import { CommentListDto } from '../../../../../comment/infrastructure/web/dto/response/comment-list.dto';
+import { CommentPostDetailListDto } from '../../../../../comment/infrastructure/web/dto/response/comment-post-detail-list.dto';
 
 export class PostDetailDto extends PickType(Post, [
   'id',
@@ -8,5 +8,5 @@ export class PostDetailDto extends PickType(Post, [
   'content',
   'createdAt',
 ]) {
-  comments: CommentListDto[];
+  comments: CommentPostDetailListDto[];
 }
