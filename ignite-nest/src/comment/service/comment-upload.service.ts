@@ -17,8 +17,9 @@ export class CommentUploadService implements CommentUploadUsecase {
   ) {}
 
   async execute(postId: number, request: CommentUploadDto): Promise<void> {
-    const post = await this.postInPort.getPostByIdOrThrow(postId);
-    const comment = CommentMapper.toEntity(post, request);
+    // Post 존재하는지 검증
+    await this.postInPort.getPostByIdOrThrow(postId);
+    const comment = CommentMapper.toEntity(postId, request);
     await this.commentOutPort.createComment(comment);
   }
 }
