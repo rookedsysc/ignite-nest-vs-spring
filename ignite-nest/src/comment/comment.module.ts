@@ -7,6 +7,7 @@ import {
 import { CommentCommandAdapter } from './infrastructure/repository/comment-command.adapter';
 import { CommentUploadService } from './service/comment-upload.service';
 import { PostModule } from '../post/post.module';
+import { PostCommentController } from './infrastructure/web/comment.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Comment]), PostModule],
@@ -20,5 +21,6 @@ import { PostModule } from '../post/post.module';
       useClass: CommentUploadService,
     },
   ],
+  controllers: [PostCommentController],
 })
 export class CommentModule {}
