@@ -2,6 +2,7 @@ package org.rookedsysc.ignitespring.post.mapper
 
 import org.rookedsysc.ignitespring.post.entity.PostEntity
 import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostCreateDto
+import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostListDto
 
 class PostMapper {
     companion object {
@@ -9,6 +10,15 @@ class PostMapper {
             return PostEntity(
                 title = postCreateDto.title,
                 content = postCreateDto.content,
+            )
+        }
+
+        fun toPostListDto(postEntity: PostEntity): PostListDto {
+            return PostListDto(
+                id = postEntity.id,
+                title = postEntity.title,
+                commentCount = postEntity.commentCount,
+                createAt = postEntity.createdAt,
             )
         }
     }
