@@ -1,7 +1,9 @@
 package org.rookedsysc.ignitespring.post.mapper
 
+import org.rookedsysc.ignitespring.comment.infrastructure.web.dto.CommentPostDetailListDto
 import org.rookedsysc.ignitespring.post.entity.PostEntity
 import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostCreateDto
+import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostDetailDto
 import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostListDto
 
 class PostMapper {
@@ -19,6 +21,16 @@ class PostMapper {
                 title = postEntity.title,
                 commentCount = postEntity.commentCount,
                 createAt = postEntity.createdAt,
+            )
+        }
+
+        fun toPostDetailDto(postEntity: PostEntity, commentPostDetailListDto: CommentPostDetailListDto) : PostDetailDto{
+            return PostDetailDto(
+                id = postEntity.id,
+                title = postEntity.title,
+                content = postEntity.content,
+                createdAt = postEntity.createdAt,
+                postDetailListDto = commentPostDetailListDto
             )
         }
     }
