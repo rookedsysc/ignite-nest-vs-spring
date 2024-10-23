@@ -12,4 +12,8 @@ class CommentQueryAdapter(
     override fun findAllCommentList(): List<CommentEntity> {
         return commentRepository.findAll()
     }
+
+    override fun findByPostId(postId: Long): List<CommentEntity> {
+        return commentRepository.findByPostId(postId)
+    }
 }
