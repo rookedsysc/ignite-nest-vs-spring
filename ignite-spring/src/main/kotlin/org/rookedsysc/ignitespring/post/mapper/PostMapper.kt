@@ -24,13 +24,13 @@ class PostMapper {
             )
         }
 
-        fun toPostDetailDto(postEntity: PostEntity, commentPostDetailListDto: CommentPostDetailListDto) : PostDetailDto{
+        fun toPostDetailDto(postEntity: PostEntity, commentDtoList: List<CommentPostDetailListDto>) : PostDetailDto{
             return PostDetailDto(
                 id = postEntity.id,
                 title = postEntity.title,
                 content = postEntity.content,
                 createdAt = postEntity.createdAt,
-                postDetailListDto = commentPostDetailListDto
+                postDetailListDto = commentDtoList
             )
         }
     }

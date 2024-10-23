@@ -8,5 +8,5 @@ data class PostDetailDto(
     val title: String,
     val content: String,
     val createdAt: Date,
-    val postDetailListDto: CommentPostDetailListDto
+    val postDetailListDto: List<CommentPostDetailListDto>
 ) {}
