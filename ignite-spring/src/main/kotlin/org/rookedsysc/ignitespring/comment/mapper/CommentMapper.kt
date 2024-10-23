@@ -2,6 +2,8 @@ package org.rookedsysc.ignitespring.comment.mapper
 
 import org.rookedsysc.ignitespring.comment.entity.CommentEntity
 import org.rookedsysc.ignitespring.comment.infrastructure.web.dto.CommentCreateDto
+import org.rookedsysc.ignitespring.comment.infrastructure.web.dto.CommentListDto
+import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostListDto
 
 class CommentMapper {
     companion object {
@@ -10,6 +12,17 @@ class CommentMapper {
                 postId = postId,
                 content = commentCreateDto.content,
                 title = commentCreateDto.title
+            )
+        }
+
+        fun toCommentListDto(commentEntity: CommentEntity, postListDto: PostListDto):CommentListDto
+        {
+            return CommentListDto(
+                id = commentEntity.id,
+                title = commentEntity.title,
+                content = commentEntity.content,
+                createdAt = commentEntity.createdAt,
+                postListDto = postListDto
             )
         }
     }
