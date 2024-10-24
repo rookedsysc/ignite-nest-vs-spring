@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.rookedsysc.ignitespring.comment.infrastructure.web.dto.CommentListDto
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Pageable
 
 @Tag(name = "댓글 관리", description = "게시글에 대한 댓글 관리 API")
 interface CommentControllerDecorator {
@@ -16,5 +18,5 @@ interface CommentControllerDecorator {
             ApiResponse(responseCode = "404", description = "해당 PostId를 찾을 수 없음")
         ]
     )
-    fun getComments(): List<CommentListDto>
+    fun getComments(size: Int, page: Int): List<CommentListDto>
 }

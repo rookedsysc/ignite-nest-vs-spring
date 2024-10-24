@@ -9,6 +9,7 @@ import org.rookedsysc.ignitespring.post.domain.port.`in`.PostInPort
 import org.rookedsysc.ignitespring.post.entity.PostEntity
 import org.rookedsysc.ignitespring.post.infrastructure.web.dto.PostListDto
 import org.rookedsysc.ignitespring.post.mapper.PostMapper
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,8 +17,8 @@ class CommentListService(
     private val commentInPort: CommentInPort,
     private val postInPort: PostInPort
 ) : CommentListUsecase {
-    override fun execute(): List<CommentListDto> {
-        val comments: List<CommentEntity> = commentInPort.findAllCommentList()
+    override fun execute(request: Pageable): List<CommentListDto> {
+        val comments: List<CommentEntity> = commentInPort.findAllCommentList(request)
 
         val commentListDto: List<CommentListDto> = comments.map { comment ->
             val post: PostEntity = postInPort.getPostByIdOrThrow(comment.postId)
