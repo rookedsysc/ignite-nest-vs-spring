@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Query } from '@nestjs/common';
 import { CommentListUsecase } from '../../domain/usecase/comment-list.usecase';
 import { ApiTags } from '@nestjs/swagger';
 import {
@@ -7,6 +7,7 @@ import {
   COMMENT_LIST_USECASE,
 } from '../../constants/comment.token';
 import { GetCommentsSwagger } from './decorator/comment-controller.decorator';
+import { PageRequestDto } from '../../../common/dto/page-request.dto';
 
 @ApiTags(COMMENT_CONTROLLER_GROUP)
 @Controller(COMMENT_CONTROLLER)
@@ -18,7 +19,7 @@ export class CommentController {
 
   @Get()
   @GetCommentsSwagger()
-  async getComments() {
-    return await this.commentListUsecase.execute();
+  async getComments(@Query() request: PageRequestDto) {
+    return await this.commentListUsecase.execute(request);
   }
 }
