@@ -1,3 +1,11 @@
+server:
+  tomcat:
+    threads:
+      max: 400 # 최대 스레드 수
+      min-spare: 32 # 최소 유지 스레드 수
+    accept-count: 400 # 대기 큐 크기
+    connection-timeout: 5000  # 연결 타임아웃 (ms)
+
 spring:
   jpa:
     show-sql: true
@@ -13,3 +21,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: df159357
+    hikari:
+      maximum-pool-size: 32 # 최대 커넥션 풀 크기
+      minimum-idle: 16 # 최소 유휴 커넥션 수
+      idle-timeout: 300000  # 유휴 커넥션 타임아웃 (ms)
+      connection-timeout: 20000  # 커넥션 타임아웃 (ms)
+      max-lifetime: 1200000  # 커넥션 최대 수명 (ms)
