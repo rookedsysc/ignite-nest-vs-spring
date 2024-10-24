@@ -7,4 +7,4 @@ NestJS와 Spring을 비교하기 위한 Repository
 
 ## Presentation 
 
-- [발표자료](https://docs.google.com/presentation/d/1bT_HPMmlRgyRyPpoNX9GA8BBkdDHYOua0RfHElGXO-w/edit?usp=sharing)
+[발표자료](https://docs.google.com/presentation/d/1bT_HPMmlRgyRyPpoNX9GA8BBkdDHYOua0RfHElGXO-w/edit?usp=sharing)
