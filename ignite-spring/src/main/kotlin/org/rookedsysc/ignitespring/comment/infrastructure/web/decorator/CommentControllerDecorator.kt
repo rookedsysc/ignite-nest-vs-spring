@@ -18,5 +18,5 @@ interface CommentControllerDecorator {
             ApiResponse(responseCode = "404", description = "해당 PostId를 찾을 수 없음")
         ]
     )
-    fun getComments(size: Int, page: Int): List<CommentListDto>
+    fun getComments(pageSize: Int, currentPage: Int): List<CommentListDto>
 }

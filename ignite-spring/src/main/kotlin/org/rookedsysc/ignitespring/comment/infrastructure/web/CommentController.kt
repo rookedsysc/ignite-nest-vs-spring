@@ -19,10 +19,10 @@ class CommentController(
 
     @GetMapping
     override fun getComments(
-        @RequestParam(value = "page") page: Int,
-        @RequestParam(value = "size") size: Int
+        @RequestParam(value = "currentPage") currentPage: Int,
+        @RequestParam(value = "pageSize") pageSize: Int,
     ): List<CommentListDto> {
-        val request: Pageable = Pageable.ofSize(size).withPage(page)
+        val request: Pageable = Pageable.ofSize(pageSize).withPage(currentPage)
         return commentListUsecase.execute(request)
     }
 }
