@@ -39,5 +39,5 @@ export default function () {
 
   // 실행 시간 출력
   const currentTime = new Date().toISOString();
-  console.log(`Request time: ${currentTime}`);
+  console.log(`Request time: ${currentTime} Response Status : ${res.status}`);
 }
